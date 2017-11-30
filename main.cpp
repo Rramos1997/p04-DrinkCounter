@@ -23,6 +23,7 @@ if(option == 'O'||'o')
     cin>>previousFile;
 
     fileAction.accessFile(previousFile);
+
     }
 else if(option == 'N'||'n')
     {
