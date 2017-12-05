@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 void textfile::setName(string firstName,string lastName)
@@ -19,8 +20,9 @@ string textfile::fullName()
 
 void textfile::createFile(string userName)
     {
-    ifstream newFile(userName.append(".txt").c_str()); 
-
+    std::ofstream newFile; 
+    newFile.open(userName.append(".txt").c_str(), std::ofstream::out | std::ofstream::in | std::ofstream::app); 
+    cout<<"Your file has been named "<<userName<<endl;
     }
 
 
@@ -30,12 +32,24 @@ void textfile::createFile(string userName)
 void textfile::accessFile(string x)
     {
     bool validFile;
-    std::fstream file;
-    file.open (x, std::fstream::in | std::fstream::out | std::fstream::app);
-    validFile=file.is_open();
-    if(validFile = true)
-        {   
-        cout<<"Welcome back!"<<endl;
-
+    std::ofstream oldFile;
+    oldFile.open(x.c_str(), std::ofstream::in | std::ofstream::out | std::ofstream::app);
+    validFile = oldFile.is_open();
+    while(validFile = false)
+        {
+        cout<<"Error loading file, please enter file name again."<<endl;
+        cin>>x;
         }
+
+cout<<"Welcome back!"<<endl;
     }
+
+
+
+
+
+
+
+
+
+

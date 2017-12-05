@@ -2,20 +2,18 @@
 #define _TEXTFILE_H_
 #include <string>
 #include<vector>
+#include <fstream>
 using namespace std;
 class textfile
     {
     private:
     string x;
     string y;
-    int drinks;
-    vector <int> weeklyDrinks;
-    vector <vector <int> > monthlyDrinks;
     public:
     void setName(string, string);
     string fullName();
     void createFile(string);
-    void accessFile(string );
+    void accessFile(string);
     };
 
 
