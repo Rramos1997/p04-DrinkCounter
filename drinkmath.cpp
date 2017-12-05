@@ -11,14 +11,14 @@ void drinkmath::addDrinks(int x)
     weeklyDrinks.resize(WEEK);
     weeklyDrinks.push_back(x);
     display(weeklyDrinks);
+    /* for (auto it = std::begin(foo); it!=std::end(foo); ++it)
+    bar.push_back(*it); */
     }
 
-void drinkmath::display(vector <int>& v)
+void drinkmath::display(vector <int> v)
 {
-    for(int i=0; i<v.size();i++)
-    {
-        cout << v[i]<<" ";
-    }
+   for (auto it = std::begin(v); it!=std::end(v); ++it)
+    std::cout << ' ' << *it;
     cout<<endl;
 }
 // vector < vector <int> > drinkmath:: monthlyDrinks(vector <int>)
