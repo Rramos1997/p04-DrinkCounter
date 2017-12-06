@@ -32,25 +32,34 @@ if((option == 'O') || (option =='o'))
 
 else if((option == 'N') || (option == 'n'))
     {
-    int drinks;
+    int drinks, avgDrink, monthlyAvg;
     string firstName,lastName;
+
     cout<<"What is your full name?"<<endl;
     cin>>firstName>>lastName;
     fileAction.setName(firstName,lastName);
     fileAction.createFile(fileAction.fullName());
     cout<<"Hello, "<<firstName + "!"<<endl;
-    vector <int> weeklyDrinks;
-    do
-    {   
-        cout<<"How many alcoholic beverages have you had each day of this week? (Enter -1 to finish)"<<endl;
-        cin>>drinks;
-        
-    }while(drinks > -1);
+    for(int x=1;x<7;x++)
         {
-        beverage.addDrinks(drinks);
+            cout<<"How many alcoholic beverages have you had each day of this week?"<<endl;
+            cin>>drinks;        
+            beverage.addDrinks(drinks);
+       
         }
-    }
+    vector <int> weeklyDrinks = beverage.addDrinks(drinks);
+    beverage.displayWeekly(weeklyDrinks);
+    avgDrink = beverage.weeklyAverage();
 
+    cout<<"You averaged "<<avgDrink<<" drinks per day this week."<<endl;
+
+    beverage.monthlyDrinks(weeklyDrinks);
+    vector <vector <int> > monthlyDrinks = beverage.monthlyDrinks(weeklyDrinks);
+    beverage.displayMonthly(monthlyDrinks);
+//    monthlyAvg = beverage.monthlyAverage();
+
+//  cout<<"You have averaged "<<monthlyAvg<<" drinks this month."<<endl;
+    }
 
 else((option == 'C') || (option != 'c'));
 
