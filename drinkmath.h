@@ -11,10 +11,12 @@ class drinkmath
     vector <int> weeklyDrinks;
     vector < vector <int> > calender;
     public:
-    void display(vector <int>&);
-    void addDrinks(int);
+    void displayWeekly(vector <int>);
+    vector <int> addDrinks(int);
+    int weeklyAverage();
     vector < vector <int> > monthlyDrinks(vector <int>);
-
+    void displayMonthly(vector <vector <int> >);
+    int monthlyAverage();
     };
 
 

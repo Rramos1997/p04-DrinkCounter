@@ -7,6 +7,7 @@ using namespace std;
 
 vector <int> drinkmath::addDrinks(int x)
     {
+<<<<<<< HEAD
     drinks = x;
     weeklyDrinks.push_back(drinks);
     return weeklyDrinks;
@@ -18,6 +19,20 @@ void drinkmath::displayWeekly(vector <int> v)
     {
         cout<<v[row]<<" ";
     }
+=======
+    const int WEEK=7;
+    weeklyDrinks.resize(WEEK);
+    weeklyDrinks.push_back(x);
+    display(weeklyDrinks);
+    /* for (auto it = std::begin(foo); it!=std::end(foo); ++it)
+    bar.push_back(*it); */
+    }
+
+void drinkmath::display(vector <int> v)
+{
+   for (auto it = std::begin(v); it!=std::end(v); ++it)
+    std::cout << ' ' << *it;
+>>>>>>> 6933fe724d9df2179d63760d2f2b1f4d22973fc9
     cout<<endl;
 }
 
