@@ -7,7 +7,6 @@ using namespace std;
 
 vector <int> drinkmath::addDrinks(int x)
     {
-<<<<<<< HEAD
     drinks = x;
     weeklyDrinks.push_back(drinks);
     return weeklyDrinks;
@@ -15,40 +14,26 @@ vector <int> drinkmath::addDrinks(int x)
 
 void drinkmath::displayWeekly(vector <int> v)
 {
-    for(int row=0; row<v.size();row++)
+int const WEEK = v.size();
+    for(int row=0; row<WEEK-1;row++)
     {
         cout<<v[row]<<" ";
     }
-=======
-    const int WEEK=7;
-    weeklyDrinks.resize(WEEK);
-    weeklyDrinks.push_back(x);
-    display(weeklyDrinks);
-    /* for (auto it = std::begin(foo); it!=std::end(foo); ++it)
-    bar.push_back(*it); */
-    }
-
-void drinkmath::display(vector <int> v)
-{
-   for (auto it = std::begin(v); it!=std::end(v); ++it)
-    std::cout << ' ' << *it;
->>>>>>> 6933fe724d9df2179d63760d2f2b1f4d22973fc9
-    cout<<endl;
 }
 
 int drinkmath::weeklyAverage()
 {
     int totalDrinks=0;
-    int avgDrinks=0;
+    int averageDrinks=0;
     for(int x=0;x<weeklyDrinks.size();x++)
     {
         totalDrinks = totalDrinks+weeklyDrinks[x];
     }
     if(weeklyDrinks.size()>0)
     {
-        avgDrinks = totalDrinks / weeklyDrinks.size();
+        averageDrinks = totalDrinks / weeklyDrinks.size();
     }
-    return avgDrinks;
+    return averageDrinks;
 }
 
 vector < vector <int> > drinkmath:: monthlyDrinks(vector <int>)
@@ -70,23 +55,58 @@ void drinkmath::displayMonthly(vector <vector <int> > v)
         }
 }
 
-/*int drinkmath::monthlyAverage()
+int drinkmath::monthlyAverage()
 {
     int totalDrinks=0;
     int monthlyAvg=0;
-    for(int i=0;i<calender.size();i++)
+    for(int x=0;x<calender.size();x++)
         {
-        for(int j=0;j<calender[i].size();j++)
+        for(int y=0;y<calender[x].size();y++)
             {
+            totalDrinks = totalDrinks + calender[x][y];
             }
-        totalDrinks = totalDrinks + calender[i][j];
+        //totalDrinks = totalDrinks + calender[x][y];
 
         }
-        if(calender[i].size()>0)
+        if(calender.size()>0)
         {
-            monthlyAvg = totalDrinks / 28;
+            monthlyAvg = totalDrinks / 30;
         }
         return monthlyAvg;
 }
-*/
+
+void drinkmath::weeklyUpdate()
+{   
+    int y = 0;
+    int avgDrink;
+    cout<<"How many alcoholic beverages have you had each day of this week?"<<endl;
+     for(int x=0;x<7;x++)
+        {
+            cin>>y;
+            addDrinks(y);
+        }
+     weeklyDrinks = addDrinks(y);
+     displayWeekly(weeklyDrinks);
+     avgDrink = weeklyAverage();
+     cout<<"\nYou averaged "<<avgDrink<<" drinks per day this week."<<endl;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

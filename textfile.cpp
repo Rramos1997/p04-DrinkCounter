@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-
 void textfile::setName(string firstName,string lastName)
     {
     x = firstName;
@@ -18,30 +17,36 @@ string textfile::fullName()
     return combinedName;
     }
 
-void textfile::createFile(string userName)
+void textfile::createFile(string z)
     {
     std::ofstream newFile; 
-    newFile.open(userName.append(".txt").c_str(), std::ofstream::out | std::ofstream::in | std::ofstream::app); 
-    cout<<"Your file has been named "<<userName<<endl;
+    newFile.open(z.append(".txt").c_str(), std::ofstream::out | std::ofstream::in | std::ofstream::app); 
+    cout<<"Your file has been named "<<z<<endl;
+    ofstream SaveFile(z.c_str());
+
     }
 
 
 
 
 
-void textfile::accessFile(string x)
+void textfile::accessFile(string previousFile)
     {
     bool validFile;
-    std::ofstream oldFile;
-    oldFile.open(x.c_str(), std::ofstream::in | std::ofstream::out | std::ofstream::app);
+    string line;
+    std::fstream oldFile;
+    oldFile.open(previousFile.c_str(), std::fstream::in | std::fstream::out | std::fstream::app);
     validFile = oldFile.is_open();
     while(validFile = false)
         {
         cout<<"Error loading file, please enter file name again."<<endl;
-        cin>>x;
+        cin>>previousFile;
         }
 
 cout<<"Welcome back!"<<endl;
+
+    oldFile.close();
+    
     }
 
 
