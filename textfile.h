@@ -5,16 +5,16 @@
 #include <fstream>
 using namespace std;
 class textfile
-    {
-    private:
-    string x;
-    string y;
-    public:
-    void setName(string, string);
-    string fullName();
-    void createFile(string);
-    void accessFile(string);
-    };
+{
+        private:
+                string x;
+                string y;
+        public:
+                void setName(string, string);
+                string fullName();
+                void createFile(string);
+                void accessFile(string);
+};
 
 
 
